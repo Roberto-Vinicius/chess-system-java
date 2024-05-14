@@ -3,8 +3,6 @@ package application;
 import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
-import chess.ChessException;
-import application.UI;
 import boardgame.BoardException;
 
 import java.util.ArrayList;
