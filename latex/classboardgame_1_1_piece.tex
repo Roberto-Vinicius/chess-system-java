@@ -1,0 +1,120 @@
+\doxysection{boardgame.\+Piece Class Reference}
+\label{classboardgame_1_1_piece}\index{boardgame.Piece@{boardgame.Piece}}
+Inheritance diagram for boardgame.\+Piece\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.647059cm]{classboardgame_1_1_piece}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Piece} (\textbf{ Board} board)
+\item 
+abstract boolean[$\,$][$\,$] \textbf{ possible\+Moves} ()
+\item 
+boolean \textbf{ possible\+Move} (\textbf{ Position} \textbf{ position})
+\item 
+boolean \textbf{ is\+There\+Any\+Possible\+Move} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Board} \textbf{ get\+Board} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Position} \textbf{ position}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classboardgame_1_1_piece_a36c6801db7ba614be5a6a96419ca3fde} 
+\index{boardgame.Piece@{boardgame.Piece}!Piece@{Piece}}
+\index{Piece@{Piece}!boardgame.Piece@{boardgame.Piece}}
+\doxysubsubsection{Piece()}
+{\footnotesize\ttfamily boardgame.\+Piece.\+Piece (\begin{DoxyParamCaption}\item[{\textbf{ Board}}]{board }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ this.board\ =\ board;}
+\DoxyCodeLine{00010\ \ \ \ \ position\ =\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00011\ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\label{classboardgame_1_1_piece_aca15a61ecfeb39d7257bc9d759bae3b8} 
+\index{boardgame.Piece@{boardgame.Piece}!getBoard@{getBoard}}
+\index{getBoard@{getBoard}!boardgame.Piece@{boardgame.Piece}}
+\doxysubsubsection{getBoard()}
+{\footnotesize\ttfamily \textbf{ Board} boardgame.\+Piece.\+get\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{return}\ board;}
+\DoxyCodeLine{00015\ \ \ \}}
+
+\end{DoxyCode}
+\label{classboardgame_1_1_piece_a820721194e9882bb3df598fcaa86fb34} 
+\index{boardgame.Piece@{boardgame.Piece}!isThereAnyPossibleMove@{isThereAnyPossibleMove}}
+\index{isThereAnyPossibleMove@{isThereAnyPossibleMove}!boardgame.Piece@{boardgame.Piece}}
+\doxysubsubsection{isThereAnyPossibleMove()}
+{\footnotesize\ttfamily boolean boardgame.\+Piece.\+is\+There\+Any\+Possible\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{boolean}[][]\ mat\ =\ possibleMoves();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ mat.length;\ i++)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ mat.length;\ j++)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mat[i][j])\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00033\ \ \ \}}
+
+\end{DoxyCode}
+\label{classboardgame_1_1_piece_ae1e267d85b8a22a9ce08e30533702f27} 
+\index{boardgame.Piece@{boardgame.Piece}!possibleMove@{possibleMove}}
+\index{possibleMove@{possibleMove}!boardgame.Piece@{boardgame.Piece}}
+\doxysubsubsection{possibleMove()}
+{\footnotesize\ttfamily boolean boardgame.\+Piece.\+possible\+Move (\begin{DoxyParamCaption}\item[{\textbf{ Position}}]{position }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{return}\ possibleMoves()[position.getRow()][position.getColumn()];}
+\DoxyCodeLine{00021\ \ \ \}}
+
+\end{DoxyCode}
+\label{classboardgame_1_1_piece_a4547dacc86882ae68bcf7296801ef3ae} 
+\index{boardgame.Piece@{boardgame.Piece}!possibleMoves@{possibleMoves}}
+\index{possibleMoves@{possibleMoves}!boardgame.Piece@{boardgame.Piece}}
+\doxysubsubsection{possibleMoves()}
+{\footnotesize\ttfamily abstract boolean[$\,$][$\,$] boardgame.\+Piece.\+possible\+Moves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Reimplemented in \textbf{ chess.\+chess\+Pieces.\+Bishop} \doxyref{}{p.}{classchess_1_1chess_pieces_1_1_bishop_ab923d4ccea8feaccaba70c48c661dc1b}, \textbf{ chess.\+chess\+Pieces.\+King} \doxyref{}{p.}{classchess_1_1chess_pieces_1_1_king_a4cba46f8f032ba07e13fd323bb22cde9}, \textbf{ chess.\+chess\+Pieces.\+Knight} \doxyref{}{p.}{classchess_1_1chess_pieces_1_1_knight_a6bd1d1e900b996754b02c6096d3e8849}, \textbf{ chess.\+chess\+Pieces.\+Pawn} \doxyref{}{p.}{classchess_1_1chess_pieces_1_1_pawn_a680da071829a582c343968309d109d2d}, \textbf{ chess.\+chess\+Pieces.\+Queen} \doxyref{}{p.}{classchess_1_1chess_pieces_1_1_queen_a82fd633e1ea907a3da1ef36d510f40c6}, and \textbf{ chess.\+chess\+Pieces.\+Rook} \doxyref{}{p.}{classchess_1_1chess_pieces_1_1_rook_a9dc17e40b4684a599065d125dc6446f9}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\label{classboardgame_1_1_piece_a125130df5ab803e04d006be86317f61f} 
+\index{boardgame.Piece@{boardgame.Piece}!position@{position}}
+\index{position@{position}!boardgame.Piece@{boardgame.Piece}}
+\doxysubsubsection{position}
+{\footnotesize\ttfamily \textbf{ Position} boardgame.\+Piece.\+position\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Roberto Vinicius/\+Documents/\+Programação/\+Material de Estudo/\+Projetos/java/chess/src/boardgame/\textbf{ Piece.\+java}\end{DoxyCompactItemize}

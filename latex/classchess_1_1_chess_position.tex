@@ -1,0 +1,151 @@
+\doxysection{chess.\+Chess\+Position Class Reference}
+\label{classchess_1_1_chess_position}\index{chess.ChessPosition@{chess.ChessPosition}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Chess\+Position} (char column, int row)
+\item 
+char \textbf{ get\+Column} ()
+\item 
+int \textbf{ get\+Row} ()
+\item 
+String \textbf{ to\+String} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Position} \textbf{ to\+Position} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ Chess\+Position} \textbf{ from\+Position} (\textbf{ Position} position)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a position on a chess board. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classchess_1_1_chess_position_a5e86a9e7200918bb6e257085677bdd88} 
+\index{chess.ChessPosition@{chess.ChessPosition}!ChessPosition@{ChessPosition}}
+\index{ChessPosition@{ChessPosition}!chess.ChessPosition@{chess.ChessPosition}}
+\doxysubsubsection{ChessPosition()}
+{\footnotesize\ttfamily chess.\+Chess\+Position.\+Chess\+Position (\begin{DoxyParamCaption}\item[{char}]{column,  }\item[{int}]{row }\end{DoxyParamCaption})}
+
+Constructor for a Chess\+Position. 
+\begin{DoxyParams}{Parameters}
+{\em column} & The column of the position. \\
+\hline
+{\em row} & The row of the position. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Chess\+Exception} & if the provided column or row are not within valid bounds. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (column\ <\ \textcolor{charliteral}{'a'}\ ||\ column\ >\ \textcolor{charliteral}{'h'}\ ||\ row\ >\ 8)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ ChessException(\textcolor{stringliteral}{"{}Error\ instantiating\ ChessPosition.\ Valid\ values\ are\ from\ a1\ to\ h8"{}});}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ this.column\ =\ column;}
+\DoxyCodeLine{00024\ \ \ \ \ this.row\ =\ row;}
+\DoxyCodeLine{00025\ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\label{classchess_1_1_chess_position_ac456d0c2677938162c4bfaa0afdabb16} 
+\index{chess.ChessPosition@{chess.ChessPosition}!fromPosition@{fromPosition}}
+\index{fromPosition@{fromPosition}!chess.ChessPosition@{chess.ChessPosition}}
+\doxysubsubsection{fromPosition()}
+{\footnotesize\ttfamily static \textbf{ Chess\+Position} chess.\+Chess\+Position.\+from\+Position (\begin{DoxyParamCaption}\item[{\textbf{ Position}}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Converts a Position object to a Chess\+Position. 
+\begin{DoxyParams}{Parameters}
+{\em position} & The Position object to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Chess\+Position equivalent to the provided Position. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ ChessPosition((\textcolor{keywordtype}{char})(\textcolor{charliteral}{'a'}\ +\ position.getColumn()),8\ -\/\ position.getRow());}
+\DoxyCodeLine{00058\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_position_a9a8df0410f73354af6456a1dbf7c40fb} 
+\index{chess.ChessPosition@{chess.ChessPosition}!getColumn@{getColumn}}
+\index{getColumn@{getColumn}!chess.ChessPosition@{chess.ChessPosition}}
+\doxysubsubsection{getColumn()}
+{\footnotesize\ttfamily char chess.\+Chess\+Position.\+get\+Column (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the column of the position. \begin{DoxyReturn}{Returns}
+The column of the position. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{return}\ column;}
+\DoxyCodeLine{00033\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_position_af8de97385f1377ce332c4f21c395cc96} 
+\index{chess.ChessPosition@{chess.ChessPosition}!getRow@{getRow}}
+\index{getRow@{getRow}!chess.ChessPosition@{chess.ChessPosition}}
+\doxysubsubsection{getRow()}
+{\footnotesize\ttfamily int chess.\+Chess\+Position.\+get\+Row (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the row of the position. \begin{DoxyReturn}{Returns}
+The row of the position. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ row;}
+\DoxyCodeLine{00041\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_position_adcd613ea7f3659c3597dd293d450486e} 
+\index{chess.ChessPosition@{chess.ChessPosition}!toPosition@{toPosition}}
+\index{toPosition@{toPosition}!chess.ChessPosition@{chess.ChessPosition}}
+\doxysubsubsection{toPosition()}
+{\footnotesize\ttfamily \textbf{ Position} chess.\+Chess\+Position.\+to\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Converts the Chess\+Position to a Position object. \begin{DoxyReturn}{Returns}
+The Position object equivalent to this Chess\+Position. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ Position(8\ -\/\ row,\ column\ -\/\ \textcolor{charliteral}{'a'});}
+\DoxyCodeLine{00049\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_position_a015717358063f90e20661f9e12d9987a} 
+\index{chess.ChessPosition@{chess.ChessPosition}!toString@{toString}}
+\index{toString@{toString}!chess.ChessPosition@{chess.ChessPosition}}
+\doxysubsubsection{toString()}
+{\footnotesize\ttfamily String chess.\+Chess\+Position.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Generates a string representation of the Chess\+Position. \begin{DoxyReturn}{Returns}
+A string representing the Chess\+Position in the format "{}column + row"{}. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}}\ +\ column\ +\ row;}
+\DoxyCodeLine{00067\ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Roberto Vinicius/\+Documents/\+Programação/\+Material de Estudo/\+Projetos/java/chess/src/chess/\textbf{ Chess\+Position.\+java}\end{DoxyCompactItemize}

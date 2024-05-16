@@ -1,0 +1,181 @@
+\doxysection{chess.\+Chess\+Piece Class Reference}
+\label{classchess_1_1_chess_piece}\index{chess.ChessPiece@{chess.ChessPiece}}
+Inheritance diagram for chess.\+Chess\+Piece\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.647059cm]{classchess_1_1_chess_piece}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Chess\+Piece} (\textbf{ Board} board, \textbf{ Color} color)
+\item 
+\textbf{ Color} \textbf{ get\+Color} ()
+\item 
+int \textbf{ get\+Move\+Count} ()
+\item 
+\textbf{ Chess\+Position} \textbf{ get\+Chess\+Position} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \textbf{ boardgame.\+Piece}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Piece} (\textbf{ Board} board)
+\item 
+abstract boolean[$\,$][$\,$] \textbf{ possible\+Moves} ()
+\item 
+boolean \textbf{ possible\+Move} (\textbf{ Position} \textbf{ position})
+\item 
+boolean \textbf{ is\+There\+Any\+Possible\+Move} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ increase\+Move\+Count} ()
+\item 
+void \textbf{ decrease\+Move\+Count} ()
+\item 
+boolean \textbf{ is\+The\+Oppenent\+Piece} (\textbf{ Position} \textbf{ position})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \textbf{ boardgame.\+Piece}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Board} \textbf{ get\+Board} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \textbf{ boardgame.\+Piece}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Position} \textbf{ position}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract class representing a chess piece. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classchess_1_1_chess_piece_abb583c6e86c41fe01bc271af5ea684e9} 
+\index{chess.ChessPiece@{chess.ChessPiece}!ChessPiece@{ChessPiece}}
+\index{ChessPiece@{ChessPiece}!chess.ChessPiece@{chess.ChessPiece}}
+\doxysubsubsection{ChessPiece()}
+{\footnotesize\ttfamily chess.\+Chess\+Piece.\+Chess\+Piece (\begin{DoxyParamCaption}\item[{\textbf{ Board}}]{board,  }\item[{\textbf{ Color}}]{color }\end{DoxyParamCaption})}
+
+Constructor for a Chess\+Piece. 
+\begin{DoxyParams}{Parameters}
+{\em board} & The board where the piece will be placed. \\
+\hline
+{\em color} & The color of the piece. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ super(board);\ \textcolor{comment}{//\ Calls\ the\ constructor\ of\ the\ superclass\ (Piece)}}
+\DoxyCodeLine{00022\ \ \ \ \ this.color\ =\ color;}
+\DoxyCodeLine{00023\ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\label{classchess_1_1_chess_piece_a81e64af65d86c9b860d375f27f1f7092} 
+\index{chess.ChessPiece@{chess.ChessPiece}!decreaseMoveCount@{decreaseMoveCount}}
+\index{decreaseMoveCount@{decreaseMoveCount}!chess.ChessPiece@{chess.ChessPiece}}
+\doxysubsubsection{decreaseMoveCount()}
+{\footnotesize\ttfamily void chess.\+Chess\+Piece.\+decrease\+Move\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Decreases the move count of the piece by 1. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ moveCount-\/-\/;}
+\DoxyCodeLine{00053\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_piece_a532b56276bfead4eab52efa962e3adb9} 
+\index{chess.ChessPiece@{chess.ChessPiece}!getChessPosition@{getChessPosition}}
+\index{getChessPosition@{getChessPosition}!chess.ChessPiece@{chess.ChessPiece}}
+\doxysubsubsection{getChessPosition()}
+{\footnotesize\ttfamily \textbf{ Chess\+Position} chess.\+Chess\+Piece.\+get\+Chess\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the chess position of the piece. \begin{DoxyReturn}{Returns}
+The chess position of the piece. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{return}\ ChessPosition.fromPosition(position);}
+\DoxyCodeLine{00061\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_piece_a7e8cf5f8249e3112f8a01def247f378a} 
+\index{chess.ChessPiece@{chess.ChessPiece}!getColor@{getColor}}
+\index{getColor@{getColor}!chess.ChessPiece@{chess.ChessPiece}}
+\doxysubsubsection{getColor()}
+{\footnotesize\ttfamily \textbf{ Color} chess.\+Chess\+Piece.\+get\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the color of the piece. \begin{DoxyReturn}{Returns}
+The color of the piece. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{return}\ color;}
+\DoxyCodeLine{00031\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_piece_a8395e0f871bf3a9c7406d82debffe473} 
+\index{chess.ChessPiece@{chess.ChessPiece}!getMoveCount@{getMoveCount}}
+\index{getMoveCount@{getMoveCount}!chess.ChessPiece@{chess.ChessPiece}}
+\doxysubsubsection{getMoveCount()}
+{\footnotesize\ttfamily int chess.\+Chess\+Piece.\+get\+Move\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the number of moves made by the piece. \begin{DoxyReturn}{Returns}
+The number of moves made by the piece. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{return}\ moveCount;}
+\DoxyCodeLine{00039\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_piece_ab1be0f7aeca46d3c39900136bad15e05} 
+\index{chess.ChessPiece@{chess.ChessPiece}!increaseMoveCount@{increaseMoveCount}}
+\index{increaseMoveCount@{increaseMoveCount}!chess.ChessPiece@{chess.ChessPiece}}
+\doxysubsubsection{increaseMoveCount()}
+{\footnotesize\ttfamily void chess.\+Chess\+Piece.\+increase\+Move\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Increases the move count of the piece by 1. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ moveCount++;}
+\DoxyCodeLine{00046\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_piece_a5a2816eb842c97cdf206d40b7c4b542c} 
+\index{chess.ChessPiece@{chess.ChessPiece}!isTheOppenentPiece@{isTheOppenentPiece}}
+\index{isTheOppenentPiece@{isTheOppenentPiece}!chess.ChessPiece@{chess.ChessPiece}}
+\doxysubsubsection{isTheOppenentPiece()}
+{\footnotesize\ttfamily boolean chess.\+Chess\+Piece.\+is\+The\+Oppenent\+Piece (\begin{DoxyParamCaption}\item[{\textbf{ Position}}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Checks if the piece at a given position is an opponent\textquotesingle{}s piece. 
+\begin{DoxyParams}{Parameters}
+{\em position} & The position to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the piece at the given position is an opponent\textquotesingle{}s piece, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ ChessPiece\ p\ =\ (ChessPiece)getBoard().piece(position);}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ p\ !=\ \textcolor{keyword}{null}\ \&\&\ p.getColor()\ !=\ color;}
+\DoxyCodeLine{00071\ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Roberto Vinicius/\+Documents/\+Programação/\+Material de Estudo/\+Projetos/java/chess/src/chess/\textbf{ Chess\+Piece.\+java}\end{DoxyCompactItemize}

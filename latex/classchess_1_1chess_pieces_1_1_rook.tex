@@ -1,0 +1,168 @@
+\doxysection{chess.\+chess\+Pieces.\+Rook Class Reference}
+\label{classchess_1_1chess_pieces_1_1_rook}\index{chess.chessPieces.Rook@{chess.chessPieces.Rook}}
+Inheritance diagram for chess.\+chess\+Pieces.\+Rook\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classchess_1_1chess_pieces_1_1_rook}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Rook} (\textbf{ Board} board, \textbf{ Color} color)
+\item 
+String \textbf{ to\+String} ()
+\item 
+boolean[$\,$][$\,$] \textbf{ possible\+Moves} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \textbf{ chess.\+Chess\+Piece}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Chess\+Piece} (\textbf{ Board} board, \textbf{ Color} color)
+\item 
+\textbf{ Color} \textbf{ get\+Color} ()
+\item 
+int \textbf{ get\+Move\+Count} ()
+\item 
+\textbf{ Chess\+Position} \textbf{ get\+Chess\+Position} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \textbf{ boardgame.\+Piece}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Piece} (\textbf{ Board} board)
+\item 
+boolean \textbf{ possible\+Move} (\textbf{ Position} \textbf{ position})
+\item 
+boolean \textbf{ is\+There\+Any\+Possible\+Move} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \textbf{ chess.\+Chess\+Piece}}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ increase\+Move\+Count} ()
+\item 
+void \textbf{ decrease\+Move\+Count} ()
+\item 
+boolean \textbf{ is\+The\+Oppenent\+Piece} (\textbf{ Position} \textbf{ position})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \textbf{ boardgame.\+Piece}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Board} \textbf{ get\+Board} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \textbf{ boardgame.\+Piece}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Position} \textbf{ position}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classchess_1_1chess_pieces_1_1_rook_ab4f5b636fa7211ed1e5767633e0af559} 
+\index{chess.chessPieces.Rook@{chess.chessPieces.Rook}!Rook@{Rook}}
+\index{Rook@{Rook}!chess.chessPieces.Rook@{chess.chessPieces.Rook}}
+\doxysubsubsection{Rook()}
+{\footnotesize\ttfamily chess.\+chess\+Pieces.\+Rook.\+Rook (\begin{DoxyParamCaption}\item[{\textbf{ Board}}]{board,  }\item[{\textbf{ Color}}]{color }\end{DoxyParamCaption})}
+
+Constructor for a Rook. 
+\begin{DoxyParams}{Parameters}
+{\em board} & The board where the rook will be placed. \\
+\hline
+{\em color} & The color of the rook. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ super(board,\ color);}
+\DoxyCodeLine{00017\ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\label{classchess_1_1chess_pieces_1_1_rook_a9dc17e40b4684a599065d125dc6446f9} 
+\index{chess.chessPieces.Rook@{chess.chessPieces.Rook}!possibleMoves@{possibleMoves}}
+\index{possibleMoves@{possibleMoves}!chess.chessPieces.Rook@{chess.chessPieces.Rook}}
+\doxysubsubsection{possibleMoves()}
+{\footnotesize\ttfamily boolean[$\,$][$\,$] chess.\+chess\+Pieces.\+Rook.\+possible\+Moves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Generates a matrix of possible moves for the rook. \begin{DoxyReturn}{Returns}
+A boolean matrix indicating the possible moves for the rook. 
+\end{DoxyReturn}
+
+
+Reimplemented from \textbf{ boardgame.\+Piece} \doxyref{}{p.}{classboardgame_1_1_piece_a4547dacc86882ae68bcf7296801ef3ae}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{boolean}[][]\ mat\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{boolean}[getBoard().getRows()][getBoard().getColumns()];}
+\DoxyCodeLine{00035\ \ \ \ \ Position\ p\ =\ \textcolor{keyword}{new}\ Position(0,\ 0);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ Up}}
+\DoxyCodeLine{00038\ \ \ \ \ p.setValues(position.getRow()\ -\/\ 1,\ position.getColumn());}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ Move\ upwards\ until\ there\ is\ a\ piece}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{while}\ (getBoard().positionExists(p)\ \&\&\ !getBoard().thereIsAPiece(p))\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ p.setRow(p.getRow()\ -\/\ 1);}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (getBoard().positionExists(p)\ \&\&\ isTheOppenentPiece(p))\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ Left}}
+\DoxyCodeLine{00049\ \ \ \ \ p.setValues(position.getRow(),\ position.getColumn()\ -\/\ 1);}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{while}\ (getBoard().positionExists(p)\ \&\&\ !getBoard().thereIsAPiece(p))\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ p.setColumn(p.getColumn()\ -\/\ 1);}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (getBoard().positionExists(p)\ \&\&\ isTheOppenentPiece(p))\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ Right}}
+\DoxyCodeLine{00059\ \ \ \ \ p.setValues(position.getRow(),\ position.getColumn()\ +\ 1);}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{while}\ (getBoard().positionExists(p)\ \&\&\ !getBoard().thereIsAPiece(p))\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ p.setColumn(p.getColumn()\ +\ 1);}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{if}\ (getBoard().positionExists(p)\ \&\&\ isTheOppenentPiece(p))\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ Down}}
+\DoxyCodeLine{00069\ \ \ \ \ p.setValues(position.getRow()\ +\ 1,\ position.getColumn());}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{while}\ (getBoard().positionExists(p)\ \&\&\ !getBoard().thereIsAPiece(p))\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ p.setRow(p.getRow()\ +\ 1);}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (getBoard().positionExists(p)\ \&\&\ isTheOppenentPiece(p))\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{return}\ mat;}
+\DoxyCodeLine{00079\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1chess_pieces_1_1_rook_a4a1ee2c4f6af20e5539c3efdc70dd548} 
+\index{chess.chessPieces.Rook@{chess.chessPieces.Rook}!toString@{toString}}
+\index{toString@{toString}!chess.chessPieces.Rook@{chess.chessPieces.Rook}}
+\doxysubsubsection{toString()}
+{\footnotesize\ttfamily String chess.\+chess\+Pieces.\+Rook.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Generates a string representation of the Rook. \begin{DoxyReturn}{Returns}
+The string "{}\+R"{} representing the Rook. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}R"{}};}
+\DoxyCodeLine{00026\ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Roberto Vinicius/\+Documents/\+Programação/\+Material de Estudo/\+Projetos/java/chess/src/chess/chess\+Pieces/\textbf{ Rook.\+java}\end{DoxyCompactItemize}

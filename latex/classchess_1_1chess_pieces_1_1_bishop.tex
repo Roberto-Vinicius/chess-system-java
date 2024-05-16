@@ -1,0 +1,171 @@
+\doxysection{chess.\+chess\+Pieces.\+Bishop Class Reference}
+\label{classchess_1_1chess_pieces_1_1_bishop}\index{chess.chessPieces.Bishop@{chess.chessPieces.Bishop}}
+Inheritance diagram for chess.\+chess\+Pieces.\+Bishop\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classchess_1_1chess_pieces_1_1_bishop}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Bishop} (\textbf{ Board} board, \textbf{ Color} color)
+\item 
+String \textbf{ to\+String} ()
+\item 
+boolean[$\,$][$\,$] \textbf{ possible\+Moves} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \textbf{ chess.\+Chess\+Piece}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Chess\+Piece} (\textbf{ Board} board, \textbf{ Color} color)
+\item 
+\textbf{ Color} \textbf{ get\+Color} ()
+\item 
+int \textbf{ get\+Move\+Count} ()
+\item 
+\textbf{ Chess\+Position} \textbf{ get\+Chess\+Position} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \textbf{ boardgame.\+Piece}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Piece} (\textbf{ Board} board)
+\item 
+boolean \textbf{ possible\+Move} (\textbf{ Position} \textbf{ position})
+\item 
+boolean \textbf{ is\+There\+Any\+Possible\+Move} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \textbf{ chess.\+Chess\+Piece}}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ increase\+Move\+Count} ()
+\item 
+void \textbf{ decrease\+Move\+Count} ()
+\item 
+boolean \textbf{ is\+The\+Oppenent\+Piece} (\textbf{ Position} \textbf{ position})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \textbf{ boardgame.\+Piece}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Board} \textbf{ get\+Board} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \textbf{ boardgame.\+Piece}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Position} \textbf{ position}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a bishop chess piece. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classchess_1_1chess_pieces_1_1_bishop_a7f2c1a0f5a3d87c5309f003cee8c1596} 
+\index{chess.chessPieces.Bishop@{chess.chessPieces.Bishop}!Bishop@{Bishop}}
+\index{Bishop@{Bishop}!chess.chessPieces.Bishop@{chess.chessPieces.Bishop}}
+\doxysubsubsection{Bishop()}
+{\footnotesize\ttfamily chess.\+chess\+Pieces.\+Bishop.\+Bishop (\begin{DoxyParamCaption}\item[{\textbf{ Board}}]{board,  }\item[{\textbf{ Color}}]{color }\end{DoxyParamCaption})}
+
+Constructor for a Bishop. 
+\begin{DoxyParams}{Parameters}
+{\em board} & The board where the bishop will be placed. \\
+\hline
+{\em color} & The color of the bishop. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ super(board,\ color);}
+\DoxyCodeLine{00020\ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\label{classchess_1_1chess_pieces_1_1_bishop_ab923d4ccea8feaccaba70c48c661dc1b} 
+\index{chess.chessPieces.Bishop@{chess.chessPieces.Bishop}!possibleMoves@{possibleMoves}}
+\index{possibleMoves@{possibleMoves}!chess.chessPieces.Bishop@{chess.chessPieces.Bishop}}
+\doxysubsubsection{possibleMoves()}
+{\footnotesize\ttfamily boolean[$\,$][$\,$] chess.\+chess\+Pieces.\+Bishop.\+possible\+Moves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Generates a matrix of possible moves for the bishop. \begin{DoxyReturn}{Returns}
+A boolean matrix indicating the possible moves for the bishop. 
+\end{DoxyReturn}
+
+
+Reimplemented from \textbf{ boardgame.\+Piece} \doxyref{}{p.}{classboardgame_1_1_piece_a4547dacc86882ae68bcf7296801ef3ae}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{boolean}[][]\ mat\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{boolean}[getBoard().getRows()][getBoard().getColumns()];}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ Position\ p\ =\ \textcolor{keyword}{new}\ Position(0,\ 0);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ Northwest}}
+\DoxyCodeLine{00042\ \ \ \ \ p.setValues(position.getRow()\ -\/\ 1,\ position.getColumn()\ -\/\ 1);}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{while}\ (getBoard().positionExists(p)\ \&\&\ !getBoard().thereIsAPiece(p))\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ p.setValues(p.getRow()\ -\/\ 1,\ p.getColumn()\ -\/\ 1);}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{if}\ (getBoard().positionExists(p)\ \&\&\ isTheOppenentPiece(p))\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ Northeast}}
+\DoxyCodeLine{00052\ \ \ \ \ p.setValues(position.getRow()\ -\/\ 1,\ position.getColumn()\ +\ 1);}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{while}\ (getBoard().positionExists(p)\ \&\&\ !getBoard().thereIsAPiece(p))\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ p.setValues(p.getRow()\ -\/\ 1,\ p.getColumn()\ +\ 1);}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (getBoard().positionExists(p)\ \&\&\ isTheOppenentPiece(p))\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ Southeast}}
+\DoxyCodeLine{00062\ \ \ \ \ p.setValues(position.getRow()\ +\ 1,\ position.getColumn()\ +\ 1);}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{while}\ (getBoard().positionExists(p)\ \&\&\ !getBoard().thereIsAPiece(p))\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ p.setValues(p.getRow()\ +\ 1,\ p.getColumn()\ +\ 1);}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (getBoard().positionExists(p)\ \&\&\ isTheOppenentPiece(p))\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ Southwest}}
+\DoxyCodeLine{00072\ \ \ \ \ p.setValues(position.getRow()\ +\ 1,\ position.getColumn()\ -\/\ 1);}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{while}\ (getBoard().positionExists(p)\ \&\&\ !getBoard().thereIsAPiece(p))\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ p.setValues(p.getRow()\ +\ 1,\ p.getColumn()\ -\/\ 1);}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (getBoard().positionExists(p)\ \&\&\ isTheOppenentPiece(p))\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ mat[p.getRow()][p.getColumn()]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{return}\ mat;}
+\DoxyCodeLine{00082\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1chess_pieces_1_1_bishop_a5ab3e5e6a12cb074c937737d3483ef27} 
+\index{chess.chessPieces.Bishop@{chess.chessPieces.Bishop}!toString@{toString}}
+\index{toString@{toString}!chess.chessPieces.Bishop@{chess.chessPieces.Bishop}}
+\doxysubsubsection{toString()}
+{\footnotesize\ttfamily String chess.\+chess\+Pieces.\+Bishop.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Generates a string representation of the Bishop. \begin{DoxyReturn}{Returns}
+The string "{}\+B"{} representing the Bishop. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}B"{}};}
+\DoxyCodeLine{00029\ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Roberto Vinicius/\+Documents/\+Programação/\+Material de Estudo/\+Projetos/java/chess/src/chess/chess\+Pieces/\textbf{ Bishop.\+java}\end{DoxyCompactItemize}

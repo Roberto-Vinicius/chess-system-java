@@ -1,0 +1,92 @@
+\doxysection{application.\+Program Class Reference}
+\label{classapplication_1_1_program}\index{application.Program@{application.Program}}
+
+
+The main class of the chess game application.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ main} (String[$\,$] args)
+\begin{DoxyCompactList}\small\item\em The entry point of the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The main class of the chess game application. 
+
+\doxysubsection{Member Function Documentation}
+\label{classapplication_1_1_program_a55e2c7ab08f7a13838006d0d13c06040} 
+\index{application.Program@{application.Program}!main@{main}}
+\index{main@{main}!application.Program@{application.Program}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily static void application.\+Program.\+main (\begin{DoxyParamCaption}\item[{String[$\,$]}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The entry point of the application. 
+
+This method starts the chess game and handles the game loop until checkmate is reached. It prompts players for moves, validates input, performs moves, and checks for special moves like promotions. It also handles exceptions and prints messages accordingly. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ Scanner\ sc\ =\ \textcolor{keyword}{new}\ Scanner(System.in);}
+\DoxyCodeLine{00035\ \ \ \ \ ChessMatch\ chessMatch\ =\ \textcolor{keyword}{new}\ ChessMatch();}
+\DoxyCodeLine{00036\ \ \ \ \ List<ChessPiece>\ captured\ =\ \textcolor{keyword}{new}\ ArrayList<>();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{while}\ (!chessMatch.getCheckMate())\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Clear\ the\ console\ screen}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ UI.clearScreen();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Print\ the\ current\ state\ of\ the\ chess\ match}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ UI.printMatch(chessMatch,\ captured);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ System.out.println();}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ System.out.print(\textcolor{stringliteral}{"{}Source:\ "{}});}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ ChessPosition\ source\ =\ UI.readChessPosition(sc);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ System.out.println();}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}[][]\ possibleMoves\ =\ chessMatch.possibleMoves(source);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ UI.clearScreen();}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ UI.printBoard(chessMatch.getPieces(),\ possibleMoves);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ System.out.print(\textcolor{stringliteral}{"{}Target:\ "{}});}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ ChessPosition\ target\ =\ UI.readChessPosition(sc);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ ChessPiece\ capturedPiece\ =\ chessMatch.performChessMove(source,\ target);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (capturedPiece\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ captured.add(capturedPiece);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (chessMatch.getPromoted()\ !=\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Prompt\ the\ player\ for\ piece\ promotion}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.print(\textcolor{stringliteral}{"{}Enter\ piece\ for\ promotion\ (B/N/R/Q):\ "{}});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String\ type\ =\ sc.nextLine().toUpperCase();}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!type.equals(\textcolor{stringliteral}{"{}B"{}})\ \&\&\ !type.equals(\textcolor{stringliteral}{"{}N"{}})\ \&\&\ !type.equals(\textcolor{stringliteral}{"{}R"{}})\ \&\&\ !type.equals(\textcolor{stringliteral}{"{}Q"{}}))\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ System.out.print(\textcolor{stringliteral}{"{}Invalid\ value!\ Enter\ piece\ for\ promotion\ (B/N/R/Q):\ "{}});}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ sc.nextLine().toUpperCase();}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chessMatch.replacePromotedPiece(type);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (BoardException\ e)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ System.out.println(e.getLocalizedMessage());}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ sc.nextLine();}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (InputMismatchException\ e)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ System.out.println(e.getLocalizedMessage());}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ sc.nextLine();}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \}\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ Clear\ the\ console\ screen}}
+\DoxyCodeLine{00083\ \ \ \ \ UI.clearScreen();}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ Print\ the\ final\ state\ of\ the\ chess\ match}}
+\DoxyCodeLine{00085\ \ \ \ \ UI.printMatch(chessMatch,\ captured);}
+\DoxyCodeLine{00086\ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Roberto Vinicius/\+Documents/\+Programação/\+Material de Estudo/\+Projetos/java/chess/src/application/\textbf{ Program.\+java}\end{DoxyCompactItemize}

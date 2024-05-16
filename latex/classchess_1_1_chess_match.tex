@@ -1,0 +1,329 @@
+\doxysection{chess.\+Chess\+Match Class Reference}
+\label{classchess_1_1_chess_match}\index{chess.ChessMatch@{chess.ChessMatch}}
+
+
+Represents a game of chess.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Chess\+Match} ()
+\item 
+int \textbf{ get\+Turn} ()
+\begin{DoxyCompactList}\small\item\em Gets the current turn number. \end{DoxyCompactList}\item 
+\textbf{ Color} \textbf{ get\+Current\+Player} ()
+\begin{DoxyCompactList}\small\item\em Gets the color of the current player. \end{DoxyCompactList}\item 
+boolean \textbf{ get\+Check} ()
+\item 
+boolean \textbf{ get\+Check\+Mate} ()
+\item 
+\textbf{ Chess\+Piece} \textbf{ get\+En\+Passant\+Vulnerable} ()
+\item 
+\textbf{ Chess\+Piece} \textbf{ get\+Promoted} ()
+\item 
+\textbf{ Chess\+Piece}[$\,$][$\,$] \textbf{ get\+Pieces} ()
+\item 
+boolean[$\,$][$\,$] \textbf{ possible\+Moves} (\textbf{ Chess\+Position} source\+Position)
+\item 
+\textbf{ Chess\+Piece} \textbf{ perform\+Chess\+Move} (\textbf{ Chess\+Position} source\+Position, \textbf{ Chess\+Position} target\+Position)
+\item 
+\textbf{ Chess\+Piece} \textbf{ replace\+Promoted\+Piece} (String type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a game of chess. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{classchess_1_1_chess_match_a52ce116b00446cbe7a1133717b5c1b95} 
+\index{chess.ChessMatch@{chess.ChessMatch}!ChessMatch@{ChessMatch}}
+\index{ChessMatch@{ChessMatch}!chess.ChessMatch@{chess.ChessMatch}}
+\doxysubsubsection{ChessMatch()}
+{\footnotesize\ttfamily chess.\+Chess\+Match.\+Chess\+Match (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ board\ =\ \textcolor{keyword}{new}\ Board(8,8\ );}
+\DoxyCodeLine{00048\ \ \ \ turn\ =\ 1;}
+\DoxyCodeLine{00049\ \ \ \ currentPlayer\ =\ Color.WHITE;}
+\DoxyCodeLine{00050\ \ \ \ initialSetup();}
+\DoxyCodeLine{00051\ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\label{classchess_1_1_chess_match_a6d32f8a9f763884adebadbf4d4a5cf2a} 
+\index{chess.ChessMatch@{chess.ChessMatch}!getCheck@{getCheck}}
+\index{getCheck@{getCheck}!chess.ChessMatch@{chess.ChessMatch}}
+\doxysubsubsection{getCheck()}
+{\footnotesize\ttfamily boolean chess.\+Chess\+Match.\+get\+Check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna se o rei do jogador atual está em xeque. \begin{DoxyReturn}{Returns}
+true se o rei do jogador atual estiver em xeque, false caso contrário. Retrieves whether the current player\textquotesingle{}s king is in check. 
+
+true if the current player\textquotesingle{}s king is in check, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ check;}
+\DoxyCodeLine{00081\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_match_ac1eff0288e122514a60ec20cdecae548} 
+\index{chess.ChessMatch@{chess.ChessMatch}!getCheckMate@{getCheckMate}}
+\index{getCheckMate@{getCheckMate}!chess.ChessMatch@{chess.ChessMatch}}
+\doxysubsubsection{getCheckMate()}
+{\footnotesize\ttfamily boolean chess.\+Chess\+Match.\+get\+Check\+Mate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieves whether the current player\textquotesingle{}s king is in checkmate. \begin{DoxyReturn}{Returns}
+true if the current player\textquotesingle{}s king is in checkmate, false otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{return}\ checkMate;}
+\DoxyCodeLine{00089\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_match_a07a5dc72795fc46a5bc14659bab1b4f7} 
+\index{chess.ChessMatch@{chess.ChessMatch}!getCurrentPlayer@{getCurrentPlayer}}
+\index{getCurrentPlayer@{getCurrentPlayer}!chess.ChessMatch@{chess.ChessMatch}}
+\doxysubsubsection{getCurrentPlayer()}
+{\footnotesize\ttfamily \textbf{ Color} chess.\+Chess\+Match.\+get\+Current\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the color of the current player. 
+
+\begin{DoxyReturn}{Returns}
+The color of the current player. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{return}\ currentPlayer;}
+\DoxyCodeLine{00069\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_match_a65c92a30ca0f0014a813efa5d4fa931a} 
+\index{chess.ChessMatch@{chess.ChessMatch}!getEnPassantVulnerable@{getEnPassantVulnerable}}
+\index{getEnPassantVulnerable@{getEnPassantVulnerable}!chess.ChessMatch@{chess.ChessMatch}}
+\doxysubsubsection{getEnPassantVulnerable()}
+{\footnotesize\ttfamily \textbf{ Chess\+Piece} chess.\+Chess\+Match.\+get\+En\+Passant\+Vulnerable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieves the piece vulnerable to "{}en passant"{} move. \begin{DoxyReturn}{Returns}
+the piece vulnerable to "{}en passant"{} move, or null if there is none. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{return}\ enPassantVulnerable;}
+\DoxyCodeLine{00097\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_match_a024d160de45765b1c1f36e9845fd0b39} 
+\index{chess.ChessMatch@{chess.ChessMatch}!getPieces@{getPieces}}
+\index{getPieces@{getPieces}!chess.ChessMatch@{chess.ChessMatch}}
+\doxysubsubsection{getPieces()}
+{\footnotesize\ttfamily \textbf{ Chess\+Piece}[$\,$][$\,$] chess.\+Chess\+Match.\+get\+Pieces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieves a matrix representing the current state of the chessboard. \begin{DoxyReturn}{Returns}
+a matrix of game pieces. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ ChessPiece[][]\ mat\ =\ \textcolor{keyword}{new}\ ChessPiece[board.getRows()][board.getColumns()];}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ Iterate\ over\ the\ matrix}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ board.getRows();\ i++)\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ board.getColumns();\ j++)\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ mat[i][j]\ =\ (ChessPiece)\ board.piece(i,\ j);}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{return}\ mat;\ \textcolor{comment}{//\ Returns\ the\ matrix\ of\ game\ pieces}}
+\DoxyCodeLine{00122\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_match_abd3944b624120ddcc3f36bc0fca195f3} 
+\index{chess.ChessMatch@{chess.ChessMatch}!getPromoted@{getPromoted}}
+\index{getPromoted@{getPromoted}!chess.ChessMatch@{chess.ChessMatch}}
+\doxysubsubsection{getPromoted()}
+{\footnotesize\ttfamily \textbf{ Chess\+Piece} chess.\+Chess\+Match.\+get\+Promoted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieves the piece promoted during the game. \begin{DoxyReturn}{Returns}
+the piece promoted during the game, or null if no piece was promoted. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{return}\ promoted;}
+\DoxyCodeLine{00105\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_match_a14f64debd7b3074ebdfad62d02f50df0} 
+\index{chess.ChessMatch@{chess.ChessMatch}!getTurn@{getTurn}}
+\index{getTurn@{getTurn}!chess.ChessMatch@{chess.ChessMatch}}
+\doxysubsubsection{getTurn()}
+{\footnotesize\ttfamily int chess.\+Chess\+Match.\+get\+Turn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current turn number. 
+
+\begin{DoxyReturn}{Returns}
+The current turn number. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ turn;}
+\DoxyCodeLine{00060\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_match_a255aabe523743e594664f80b282f0bcd} 
+\index{chess.ChessMatch@{chess.ChessMatch}!performChessMove@{performChessMove}}
+\index{performChessMove@{performChessMove}!chess.ChessMatch@{chess.ChessMatch}}
+\doxysubsubsection{performChessMove()}
+{\footnotesize\ttfamily \textbf{ Chess\+Piece} chess.\+Chess\+Match.\+perform\+Chess\+Move (\begin{DoxyParamCaption}\item[{\textbf{ Chess\+Position}}]{source\+Position,  }\item[{\textbf{ Chess\+Position}}]{target\+Position }\end{DoxyParamCaption})}
+
+Performs a chess move, moving a piece from source position to target position. Also handles special situations like pawn promotion and "{}en passant"{} moves. 
+\begin{DoxyParams}{Parameters}
+{\em source\+Position} & the source position of the piece to be moved. \\
+\hline
+{\em target\+Position} & the target position where the piece will be moved to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the captured piece during the move, if any, or null otherwise. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Chess\+Exception} & if the move results in check for the current player. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00145\ \ \ \ \ Position\ source\ =\ sourcePosition.toPosition();}
+\DoxyCodeLine{00146\ \ \ \ \ Position\ target\ =\ targetPosition.toPosition();}
+\DoxyCodeLine{00147\ \ \ \ \ validateSourcePosition(source);}
+\DoxyCodeLine{00148\ \ \ \ \ validateTargetPosition(source,\ target);}
+\DoxyCodeLine{00149\ \ \ \ \ Piece\ capturePiece\ =\ makeMove(source,\ target);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{comment}{//\ Checks\ if\ the\ move\ leaves\ own\ king\ in\ check}}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{if}\ (testCheck(currentPlayer))\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ undoMove(source,\ target,\ capturePiece);}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ ChessException(\textcolor{stringliteral}{"{}Kamikazes\ not\ here"{}});}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//\ Gets\ the\ moved\ piece}}
+\DoxyCodeLine{00158\ \ \ \ \ ChessPiece\ movedPiece\ =\ (ChessPiece)board.piece(target);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{comment}{//\#SpecialMove\ Promotion}}
+\DoxyCodeLine{00161\ \ \ \ \ promoted\ =\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{if}\ (movedPiece\ instanceof\ Pawn)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((movedPiece.getColor()\ ==\ Color.WHITE\ \&\&\ target.getRow()\ ==\ 0)\ ||\ (movedPiece.getColor()\ ==\ Color.BLACK\ \&\&\ target.getRow()\ ==\ 7))\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ promoted\ =\ (ChessPiece)board.piece(target);}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ promoted\ =\ replacePromotedPiece(\textcolor{stringliteral}{"{}Q"{}});}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{comment}{//\ Checks\ if\ the\ opponent\ is\ in\ check\ after\ the\ move}}
+\DoxyCodeLine{00170\ \ \ \ \ check\ =\ (testCheck(opponent(currentPlayer)))\ ?\ \textcolor{keyword}{true}\ :\ false;}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{comment}{//\ Checks\ if\ the\ opponent\ is\ in\ checkmate}}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{if}\ (testCheckMate(opponent(currentPlayer)))\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ checkMate\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ nextTurn();}
+\DoxyCodeLine{00178\ \ \ \ \ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{comment}{//\ \#specialmove\ en\ passant}}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordflow}{if}\ (movedPiece\ instanceof\ Pawn\ \&\&\ (target.getRow()\ ==\ source.getRow()\ -\/\ 2\ ||\ target.getRow()\ ==\ source.getRow()\ +\ 2))\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ enPassantVulnerable\ =\ movedPiece;}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ enPassantVulnerable\ =\ \textcolor{keyword}{null};}
+\DoxyCodeLine{00186\ \ \ \ \ \}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordflow}{return}\ (ChessPiece)capturePiece;}
+\DoxyCodeLine{00189\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_match_abcecc2edcaa1db10d9af3bdf540b5aa5} 
+\index{chess.ChessMatch@{chess.ChessMatch}!possibleMoves@{possibleMoves}}
+\index{possibleMoves@{possibleMoves}!chess.ChessMatch@{chess.ChessMatch}}
+\doxysubsubsection{possibleMoves()}
+{\footnotesize\ttfamily boolean[$\,$][$\,$] chess.\+Chess\+Match.\+possible\+Moves (\begin{DoxyParamCaption}\item[{\textbf{ Chess\+Position}}]{source\+Position }\end{DoxyParamCaption})}
+
+Retrieves a boolean matrix representing the possible moves of a piece. 
+\begin{DoxyParams}{Parameters}
+{\em source\+Position} & the position of the piece to check possible moves for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a boolean matrix representing the possible moves. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \ \ Position\ position\ =\ sourcePosition.toPosition();}
+\DoxyCodeLine{00131\ \ \ \ \ validateSourcePosition(position);}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}\ board.piece(position).possibleMoves();}
+\DoxyCodeLine{00133\ \ \ \}}
+
+\end{DoxyCode}
+\label{classchess_1_1_chess_match_a986be25ac6083663dfb5a5cbf37907f5} 
+\index{chess.ChessMatch@{chess.ChessMatch}!replacePromotedPiece@{replacePromotedPiece}}
+\index{replacePromotedPiece@{replacePromotedPiece}!chess.ChessMatch@{chess.ChessMatch}}
+\doxysubsubsection{replacePromotedPiece()}
+{\footnotesize\ttfamily \textbf{ Chess\+Piece} chess.\+Chess\+Match.\+replace\+Promoted\+Piece (\begin{DoxyParamCaption}\item[{String}]{type }\end{DoxyParamCaption})}
+
+Replaces a promoted pawn with a piece chosen by the player. 
+\begin{DoxyParams}{Parameters}
+{\em type} & the type of piece the pawn was promoted to ("{}\+B"{} for bishop, "{}\+N"{} for knight, "{}\+R"{} for rook, "{}\+Q"{} for queen). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new promoted piece. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Illegal\+State\+Exception} & if there is no piece to be promoted. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordflow}{if}\ (promoted\ ==\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ IllegalStateException(\textcolor{stringliteral}{"{}There\ is\ no\ piece\ to\ be\ promoted"{}});}
+\DoxyCodeLine{00201\ \ \ \ \ \}}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordflow}{if}\ (!type.equals(\textcolor{stringliteral}{"{}B"{}})\ \&\&\ !type.equals(\textcolor{stringliteral}{"{}N"{}})\ \&\&\ !type.equals(\textcolor{stringliteral}{"{}R"{}})\ \&\&\ !type.equals(\textcolor{stringliteral}{"{}Q"{}}))\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ promoted;}
+\DoxyCodeLine{00204\ \ \ \ \ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ Position\ pos\ =\ promoted.getChessPosition().toPosition();}
+\DoxyCodeLine{00207\ \ \ \ \ Piece\ p\ =\ board.removePiece(pos);}
+\DoxyCodeLine{00208\ \ \ \ \ piecesOnTheBoard.remove(p);}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{comment}{//\ Creates\ and\ places\ the\ new\ promoted\ piece\ on\ the\ board}}
+\DoxyCodeLine{00211\ \ \ \ \ ChessPiece\ newPiece\ =\ newPiece(type,\ promoted.getColor());}
+\DoxyCodeLine{00212\ \ \ \ \ board.placePiece(newPiece,\ pos);}
+\DoxyCodeLine{00213\ \ \ \ \ piecesOnTheBoard.add(newPiece);}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordflow}{return}\ newPiece;}
+\DoxyCodeLine{00216\ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Roberto Vinicius/\+Documents/\+Programação/\+Material de Estudo/\+Projetos/java/chess/src/chess/\textbf{ Chess\+Match.\+java}\end{DoxyCompactItemize}
