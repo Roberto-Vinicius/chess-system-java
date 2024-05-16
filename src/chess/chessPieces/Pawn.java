@@ -9,13 +9,23 @@ import chess.Color;
 public class Pawn extends ChessPiece{
   private ChessMatch chessMatch;
   
+  /**
+   * Constructor for a Pawn.
+   * @param board The board where the pawn will be placed.
+   * @param color The color of the pawn.
+   * @param chessMatch The current chess match.
+   */
   public Pawn(Board board, Color color, ChessMatch chessMatch) {
     super(board, color);
     this.chessMatch = chessMatch;
   }
+  
+  /**
+   * Generates a matrix of possible moves for the pawn.
+   * @return A boolean matrix indicating the possible moves for the pawn.
+   */
   @Override
   public boolean[][] possibleMoves() {
-
     boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
     Position p = new Position(0, 0);
 
@@ -87,12 +97,15 @@ public class Pawn extends ChessPiece{
 				}
 			}
     }
-
     return mat;
   }
-
+  
+  /**
+   * Generates a string representation of the Pawn.
+   * @return The string "P" representing the Pawn.
+   */
+  @Override
   public String toString() {
     return "P";
   }
 }  
-
